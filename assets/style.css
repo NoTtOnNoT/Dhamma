@@ -7,3 +7,32 @@
 /* Preserve large exam details on phones. */
 @media(max-width:600px){.result-card{grid-template-columns:minmax(0,1fr) 82px;row-gap:13px;column-gap:13px}.candidate h2{grid-column:1;grid-row:1}.candidate-meta{grid-column:2;grid-row:1}.exam-number{grid-column:1;grid-row:2}.exam-number>strong{font-size:22px;letter-spacing:.2px}.exam-group{grid-column:1;grid-row:3;flex-direction:row;align-items:baseline;gap:8px;padding-left:0;border-left:0}.exam-group>span{font-size:13px;color:#7f7892}.exam-group>strong{font-size:22px}.room{grid-column:2;grid-row:2/4;align-self:stretch;justify-content:center}.room>strong{font-size:28px}.room>span{font-size:9px}}
 @media(max-width:360px){.result-card{grid-template-columns:minmax(0,1fr) 74px;column-gap:10px}.exam-number>strong{font-size:20px}.exam-group>span{font-size:12px}.exam-group>strong{font-size:20px}}
+
+/* Larger, balanced cards with three distinct glass frames. */
+main{width:min(760px,calc(100% - 36px))}
+.search-shell{padding:34px 35px 31px}
+h1{font-size:31px}
+input{font-size:17px;padding:19px 13px}
+#summary{font-size:13px;margin-bottom:15px}
+.cards{gap:18px}
+.result-card{display:block;position:relative;isolation:isolate;overflow:hidden;padding:25px;border-radius:26px;box-shadow:0 15px 35px #46546a0c,0 3px 9px #46546a05,inset 0 1px 0 #fff;transition:transform .25s,box-shadow .25s}
+.result-card::after{content:"";position:absolute;pointer-events:none;inset:-80% -30%;background:linear-gradient(112deg,transparent 40%,#ffffff73 50%,transparent 60%);transform:translateX(-100%);opacity:0;z-index:-1}
+.result-card:hover{transform:translateY(-4px);box-shadow:0 24px 45px #46546a14,0 5px 12px #46546a07}
+.result-card:hover::after{animation:card-sheen .9s ease-out both}
+.card-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:15px;margin-bottom:20px}
+.card-heading h2{font-size:23px;line-height:1.55;font-weight:750;color:#3c465a;margin:0;min-width:0;overflow-wrap:anywhere;letter-spacing:-.3px}
+.card-heading .level{font-size:12px;border-radius:9px;padding:5px 10px;flex-shrink:0;align-self:center}
+.detail-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) minmax(0,1fr);gap:13px}
+.detail-grid .detail-frame{grid-column:auto;grid-row:auto;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:8px;min-width:0;padding:17px 19px;margin:0;border:1px solid #e1e6ef;border-radius:17px;background:linear-gradient(140deg,#f8faffd9,#edf2f9a6);box-shadow:inset 0 1px 0 #fff,0 5px 12px #46546a05;transition:transform .25s,box-shadow .25s}
+.detail-grid .detail-frame>span{font-size:12px;line-height:1.5;color:#7a879b;font-weight:600;white-space:nowrap}
+.detail-grid .detail-frame>strong{font-size:32px;line-height:1.25;font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:.2px;color:#50617f}
+.detail-grid .exam-number>strong{font-size:27px;letter-spacing:.4px;white-space:nowrap}
+.detail-grid .exam-group{background:linear-gradient(140deg,#f9f7fdd9,#f0edf7b3);border-color:#e7e1ef}
+.detail-grid .exam-group>strong{color:#7b718e}
+.detail-grid .room{background:linear-gradient(140deg,#f5f1fbd9,#eae5f5a6);border-color:#e1d9ed;align-items:center}
+.detail-grid .room>strong{font-size:36px;color:#7b6896}
+.result-card:hover .detail-frame{box-shadow:inset 0 1px 0 #fff,0 7px 16px #46546a0a}
+@keyframes card-sheen{0%{opacity:0;transform:translateX(-85%)}30%{opacity:.8}100%{opacity:0;transform:translateX(85%)}}
+@media(max-width:600px){main{width:calc(100% - 30px)}.search-shell{padding:28px 20px 25px}h1{font-size:29px}input{font-size:16px;padding:18px 10px}.cards{gap:16px}.result-card{padding:21px 19px;border-radius:24px}.card-heading{display:block;margin-bottom:17px}.card-heading h2{font-size:21px;line-height:1.55;letter-spacing:-.2px}.card-heading .level{display:inline-block;margin-top:9px;font-size:11px;padding:4px 9px}.detail-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:11px}.detail-grid .detail-frame{padding:14px 16px;border-radius:15px;gap:6px}.detail-grid .exam-number{grid-column:1/-1;flex-direction:row;align-items:center;justify-content:space-between;gap:12px}.detail-grid .detail-frame>span{font-size:12px}.detail-grid .detail-frame>strong{font-size:30px}.detail-grid .exam-number>strong{font-size:27px;letter-spacing:.3px}.detail-grid .exam-group,.detail-grid .room{align-items:center}.detail-grid .room>strong{font-size:34px}}
+@media(max-width:360px){main{width:calc(100% - 24px)}.result-card{padding:18px 15px}.card-heading h2{font-size:20px}.detail-grid .detail-frame{padding:13px 12px}.detail-grid .exam-number>strong{font-size:24px}.detail-grid .detail-frame>span{font-size:11px}}
+@media(prefers-reduced-motion:reduce){.result-card,.detail-frame{transition:none!important}.result-card::after{animation:none!important}.result-card[data-enter="true"]{animation:none!important}}
