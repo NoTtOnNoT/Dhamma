@@ -36,3 +36,14 @@ input{font-size:17px;padding:19px 13px}
 @media(max-width:600px){main{width:calc(100% - 30px)}.search-shell{padding:28px 20px 25px}h1{font-size:29px}input{font-size:16px;padding:18px 10px}.cards{gap:16px}.result-card{padding:21px 19px;border-radius:24px}.card-heading{display:block;margin-bottom:17px}.card-heading h2{font-size:21px;line-height:1.55;letter-spacing:-.2px}.card-heading .level{display:inline-block;margin-top:9px;font-size:11px;padding:4px 9px}.detail-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:11px}.detail-grid .detail-frame{padding:14px 16px;border-radius:15px;gap:6px}.detail-grid .exam-number{grid-column:1/-1;flex-direction:row;align-items:center;justify-content:space-between;gap:12px}.detail-grid .detail-frame>span{font-size:12px}.detail-grid .detail-frame>strong{font-size:30px}.detail-grid .exam-number>strong{font-size:27px;letter-spacing:.3px}.detail-grid .exam-group,.detail-grid .room{align-items:center}.detail-grid .room>strong{font-size:34px}}
 @media(max-width:360px){main{width:calc(100% - 24px)}.result-card{padding:18px 15px}.card-heading h2{font-size:20px}.detail-grid .detail-frame{padding:13px 12px}.detail-grid .exam-number>strong{font-size:24px}.detail-grid .detail-frame>span{font-size:11px}}
 @media(prefers-reduced-motion:reduce){.result-card,.detail-frame{transition:none!important}.result-card::after{animation:none!important}.result-card[data-enter="true"]{animation:none!important}}
+
+/* Lotus, incense, candles and Dharma wheel background. */
+body{background:#faf7f6}
+.glass-scene{background-color:#faf7f6;background-image:url("dhamma-background.png");background-size:cover;background-position:center;background-repeat:no-repeat}
+.glass-scene .color-pool,.glass-scene .glass-orb{display:none}
+.glass-scene::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(115deg,#fff9ed0d,transparent 55%,#ffedd718);animation:candle-glow 9s ease-in-out infinite alternate}
+.search-shell{background:linear-gradient(135deg,#fffffff0,#ffffffcf);border-color:#fffffff2;box-shadow:0 18px 50px #9278470c,0 3px 10px #6a576109,inset 0 1px 0 #fff}
+.result-card{background:linear-gradient(135deg,#ffffffed,#ffffffe0);border-color:#fffffff0}
+@keyframes candle-glow{from{opacity:.3}to{opacity:.7}}
+@media(max-width:600px){.glass-scene{background-image:url("dhamma-background-mobile.png");background-size:100% auto;background-position:center bottom;background-color:#fdf9fc}.search-shell{background:linear-gradient(135deg,#fffffff0,#ffffffe3)}.result-card{background:#fffffff0}}
+@media(prefers-reduced-motion:reduce){.glass-scene::after{animation:none!important}}
