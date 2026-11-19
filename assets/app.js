@@ -18,7 +18,7 @@
     const pages=Math.max(1,Math.ceil(matches.length/pageSize));
     page=Math.max(1,Math.min(page,pages));
     const pageRecords=matches.slice((page-1)*pageSize,page*pageSize);
-    $('results').innerHTML=matches.length?'<div class="cards">'+pageRecords.map((r,i)=>`<article class="result-card" data-enter="${!visibleKeys.has(r.level+r.number)}" style="--delay:${i*22}ms"><div class="candidate"><h2>${escape(r.firstName)} ${escape(r.lastName)}</h2><div class="candidate-meta"><span class="level">ชั้น${escape(r.level)}</span></div><div class="exam-number"><span>เลขที่สอบ</span><strong>${escape(r.number)}</strong></div><div class="exam-group">ห้องสอบที่ <strong>${escape(r.room)}</strong></div></div><div class="room"><span>หมายเลขห้อง</span><strong>${escape(r.classroom || '—')}</strong></div></article>`).join('')+'</div>':'<p class="empty">ลองตรวจการสะกดอีกครั้ง</p>';
+    $('results').innerHTML=matches.length?'<div class="cards">'+pageRecords.map((r,i)=>`<article class="result-card" data-enter="${!visibleKeys.has(r.level+r.number)}" style="--delay:${i*22}ms"><div class="candidate"><h2>${escape(r.firstName)} ${escape(r.lastName)}</h2><div class="candidate-meta"><span class="level">ชั้น${escape(r.level)}</span></div><div class="exam-number"><span>เลขที่สอบ</span><strong>${escape(r.number)}</strong></div><div class="exam-group"><span>ห้องสอบที่</span><strong>${escape(r.room)}</strong></div></div><div class="room"><span>หมายเลขห้อง</span><strong>${escape(r.classroom || '—')}</strong></div></article>`).join('')+'</div>':'<p class="empty">ลองตรวจการสะกดอีกครั้ง</p>';
     visibleKeys=new Set(pageRecords.map(r=>r.level+r.number));
     $('pagination').hidden=pages===1;
     $('prev').disabled=page===1;$('next').disabled=page===pages;
