@@ -33,6 +33,11 @@ def main():
         matches=list((ROOT/'source').glob('*ชั้น'+level+'*.xlsx'))
         assert len(matches)==1, ('Expected one source per level',level)
         rs,report=read_file(matches[0],level);records+=rs;sources.append(report)
+    room_map=json.loads((ROOT/'source/room-map.json').read_text(encoding='utf-8'))
+    for record in records:
+        classroom=room_map.get(record['level'],{}).get(record['room'])
+        assert classroom, ('Missing classroom mapping',record['level'],record['room'])
+        record['classroom']=str(classroom)
     keys=[(r['level'],r['number']) for r in records]
     assert len(keys)==len(set(keys)), 'Duplicate candidate numbers'
     records.sort(key=lambda r:(('ตรี','โท','เอก').index(r['level']),int(r['room']),r['number']))
