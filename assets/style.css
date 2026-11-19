@@ -7,3 +7,17 @@
 /* Keep the original exam group separate from the physical classroom. */
 .exam-group{flex-basis:100%;font-size:11px;color:#806491}.room{min-width:91px}.room span{white-space:nowrap}.room strong{letter-spacing:.3px}
 @media(max-width:600px){.room{min-width:78px;padding:9px 10px}.room strong{font-size:27px}.room span{font-size:9px}.exam-group{font-size:10px}.candidate-meta{row-gap:6px}}
+
+/* School identity and prominent exam details. */
+.school-crest{width:104px;height:104px;margin:0 auto 15px;padding:6px;display:grid;place-items:center;border:1px solid #ffffffed;border-radius:24px;background:#fff;box-shadow:0 11px 25px #7651aa1c,inset 0 1px 0 #fff}
+.school-crest img{display:block;width:92px;height:92px;object-fit:contain;border-radius:17px}
+.school-name{font-size:17px;line-height:1.65;color:#62437f;font-weight:650;margin:0 0 19px;overflow-wrap:anywhere}
+.school-name span{display:block;font-size:16px}
+.candidate-meta{margin-top:7px}
+.exam-number{margin-top:13px;display:flex;flex-direction:column;gap:2px}
+.exam-number>span{font-size:11px;font-weight:600;color:#735d85}
+.exam-number>strong{font-size:25px;line-height:1.4;font-weight:800;color:#603493;letter-spacing:.6px;font-variant-numeric:tabular-nums;white-space:nowrap;text-shadow:0 1px 0 #ffffffb3}
+.exam-group{display:inline-flex;align-items:baseline;gap:7px;margin-top:10px;padding:5px 11px;border-radius:10px;border:1px solid #d5bdecb3;background:#ece0f9b8;color:#603886;font-size:16px;line-height:1.4;font-weight:700;flex-basis:auto;box-shadow:inset 0 1px 0 #ffffffb3}
+.exam-group strong{font-size:22px;font-weight:800;color:#623194}
+@media(max-width:600px){.school-crest{width:94px;height:94px;padding:5px;border-radius:22px;margin-bottom:13px}.school-crest img{width:82px;height:82px;border-radius:16px}.school-name{font-size:15px;margin-bottom:17px}.school-name span{font-size:14px}.exam-number{margin-top:11px}.exam-number>span{font-size:10px}.exam-number>strong{font-size:21px;letter-spacing:.3px}.exam-group{font-size:14px;gap:6px;padding:5px 9px;margin-top:9px}.exam-group strong{font-size:20px}.result-card{align-items:center}}
+@media(max-width:360px){.exam-number>strong{font-size:19px;letter-spacing:0}.exam-group{font-size:13px;padding:5px 7px}.exam-group strong{font-size:18px}.room{min-width:72px;padding:9px 8px}.result-card{gap:9px;padding:16px 12px}}
