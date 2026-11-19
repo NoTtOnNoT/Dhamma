@@ -47,3 +47,39 @@ body{background:#faf7f6}
 @keyframes candle-glow{from{opacity:.3}to{opacity:.7}}
 @media(max-width:600px){.glass-scene{background-image:url("dhamma-background-mobile.png");background-size:100% auto;background-position:center bottom;background-color:#fdf9fc}.search-shell{background:linear-gradient(135deg,#fffffff0,#ffffffe3)}.result-card{background:#fffffff0}}
 @media(prefers-reduced-motion:reduce){.glass-scene::after{animation:none!important}}
+/* Soft living scenery: only transform and opacity animate continuously. */
+.glass-scene{background-image:none!important;background-color:#faf7f6;contain:layout paint}
+.scene-depth{position:absolute;inset:0;transform:translate3d(var(--scene-x,0px),var(--scene-y,0px),0);transition:transform 850ms cubic-bezier(.2,.65,.25,1)}
+.scene-art{position:absolute;inset:-12px;background:url("dhamma-background.png") center/cover no-repeat;animation:lotus-breathe 26s ease-in-out infinite alternate;transform-origin:50% 65%;will-change:transform}
+.candle-aura{position:absolute;right:0;bottom:0;width:29vw;height:35vh;max-width:430px;max-height:340px;background:radial-gradient(ellipse at 65% 70%,#ffdc8a3d,transparent 67%);opacity:.5;animation:flame-breathe 4.7s ease-in-out infinite alternate;pointer-events:none}
+.incense-mist{position:absolute;right:1.5%;bottom:16%;width:95px;height:280px;opacity:.16;animation:mist-rise 12s ease-in-out infinite}
+.incense-mist svg{width:100%;height:100%;overflow:visible;stroke:#fff;stroke-width:3;stroke-linecap:round}
+.incense-mist path+path{stroke-width:1.4;opacity:.5}
+.floating-petals,.light-dust{position:absolute;inset:0;pointer-events:none}
+.floating-petals i{position:absolute;width:17px;height:25px;bottom:-40px;left:5%;border-radius:100% 0 100% 0;background:linear-gradient(140deg,#fff3f6d9,#edc9d970);border:1px solid #ffffffaa;box-shadow:0 3px 8px #bb8ba10a;opacity:0;animation:petal-glide 24s linear infinite}
+.floating-petals i:nth-child(2){left:12%;width:12px;height:18px;animation-delay:-9s;animation-duration:30s}
+.floating-petals i:nth-child(3){left:88%;width:15px;height:22px;animation-delay:-17s;animation-duration:28s}
+.floating-petals i:nth-child(4){left:95%;width:11px;height:17px;animation-delay:-5s;animation-duration:26s}
+.floating-petals i:nth-child(5){left:2%;width:10px;height:16px;animation-delay:-20s;animation-duration:32s}
+.light-dust i{position:absolute;bottom:6%;left:7%;width:4px;height:4px;border-radius:50%;background:#fff5d8;box-shadow:0 0 9px #efcc8f;opacity:0;animation:dust-lift 15s ease-in-out infinite}
+.light-dust i:nth-child(2){left:20%;animation-delay:-8s;animation-duration:19s}
+.light-dust i:nth-child(3){left:81%;animation-delay:-3s}
+.light-dust i:nth-child(4){left:92%;animation-delay:-12s;animation-duration:20s}
+.light-dust i:nth-child(5){left:4%;animation-delay:-10s;animation-duration:22s}
+.light-dust i:nth-child(6){left:96%;animation-delay:-5s;animation-duration:17s}
+.search-box{transition:border-color .25s,box-shadow .35s,transform .35s cubic-bezier(.2,.7,.25,1)}
+.search-box:focus-within{transform:translateY(-2px);box-shadow:0 0 0 4px #c5b2db18,0 10px 22px #73617c0b}
+.result-card[data-enter="true"]{animation:gentle-card-in .44s cubic-bezier(.16,1,.3,1) both;animation-delay:var(--delay,0ms)}
+.detail-grid .detail-frame{transition:transform .35s cubic-bezier(.2,.7,.25,1),box-shadow .35s}
+@media(hover:hover) and (pointer:fine){.detail-grid .detail-frame:hover{transform:translateY(-3px);box-shadow:inset 0 1px 0 #fff,0 9px 18px #8d7a9b13}.school-crest img{transition:transform .5s cubic-bezier(.2,.7,.25,1),filter .5s}.school-crest:hover img{transform:translateY(-3px);filter:drop-shadow(0 8px 8px #6d56372b)}}
+.clear,.pagination button{transition:transform .2s,background .2s,box-shadow .2s}
+.clear:active,.pagination button:active:not(:disabled){transform:scale(.93)}
+@keyframes lotus-breathe{0%{transform:translate3d(-3px,0,0) scale(1.005)}100%{transform:translate3d(4px,-5px,0) scale(1.025)}}
+@keyframes flame-breathe{0%{opacity:.32;transform:scale(.98)}40%{opacity:.6}100%{opacity:.42;transform:scale(1.04)}}
+@keyframes mist-rise{0%{opacity:0;transform:translate3d(0,16px,0) scaleX(.9)}25%{opacity:.18}65%{opacity:.12;transform:translate3d(-10px,-15px,0) scaleX(1.1)}100%{opacity:0;transform:translate3d(7px,-42px,0) scaleX(1.2)}}
+@keyframes petal-glide{0%{opacity:0;transform:translate3d(0,0,0) rotate(-25deg)}12%{opacity:.4}50%{transform:translate3d(16px,-48vh,0) rotate(75deg)}88%{opacity:.28}100%{opacity:0;transform:translate3d(-9px,-105vh,0) rotate(175deg)}}
+@keyframes dust-lift{0%,100%{opacity:0;transform:translate3d(0,0,0)}20%{opacity:.4}80%{opacity:.15}95%{transform:translate3d(12px,-230px,0)}}
+@keyframes gentle-card-in{from{opacity:0;translate:0 11px}to{opacity:1;translate:0 0}}
+.motion-paused .glass-scene *,.motion-paused .glass-scene::after{animation-play-state:paused!important}
+@media(max-width:600px){.scene-art{inset:-6px;background-image:url("dhamma-background-mobile.png");background-size:100% auto;background-position:center bottom;animation-duration:30s}.floating-petals i:nth-child(n+4),.light-dust i:nth-child(n+4){display:none}.floating-petals i{left:2%;width:10px;height:15px}.floating-petals i:nth-child(2){left:95%;width:9px;height:13px}.floating-petals i:nth-child(3){left:98%;width:10px;height:14px}.candle-aura{width:45vw;height:24vh}.incense-mist{right:0;bottom:7%;width:60px;height:180px}}
+@media(prefers-reduced-motion:reduce){.scene-depth{transform:none!important;transition:none!important}.scene-art{animation:none!important;will-change:auto}.floating-petals,.light-dust,.incense-mist{display:none}.candle-aura,.result-card[data-enter="true"]{animation:none!important}.search-box:focus-within{transform:none}.detail-grid .detail-frame,.school-crest img{transition:none!important}}
